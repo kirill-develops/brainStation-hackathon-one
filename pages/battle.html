@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link href="../styles/fight.css" rel="stylesheet" />
+    <title>Fight!</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <main class="console">
+      <div class="console__left-buttons">
+        <img src="../assets/buttonsArrows.svg" />
+      </div>
+
+      <div class="console__screen">
+        <div class="game-over">
+          <p class="game-over__message">Game over!</p>
+          <a class="game-over__link" href="../index.html">Play Again?</a>
+        </div>
+        <div class="battle">
+          <div class="battle__player">
+            <div class="battle__stat battle__stat--left">
+              <p id="playerOneName">???</p>
+              <div class="battle__hp-wrapper">
+                <div class="battle__hp" id="playerOneHP"></div>
+              </div>
+              <div id="playerOneCups" class="battle__cups"></div>
+            </div>
+            <img
+              src="../assets/icognito.svg"
+              alt=""
+              class="battle__sprite"
+              id="playerOneSprite"
+            />
+            <img
+              src="../assets/bubbles4.gif"
+              alt=""
+              class="battle__no-hit"
+              id="playerOneBubbles"
+            />
+          </div>
+          <div class="battle__player battle__player--two">
+            <img
+              src="../assets/icognito.svg"
+              alt=""
+              class="battle__sprite battle__sprite--right"
+              id="playerTwoSprite"
+            />
+            <img
+              src="../assets/bubbles4.gif"
+              alt=""
+              class="battle__no-hit"
+              id="playerTwoBubbles"
+            />
+            <div class="battle__stat battle__stat--right">
+              <p id="playerTwoName">???</p>
+              <div class="battle__hp-wrapper">
+                <div class="battle__hp" id="playerTwoHP"></div>
+              </div>
+              <div id="playerTwoCups" class="battle__cups"></div>
+            </div>
+          </div>
+        </div>
+        <div class="game-prompt">
+          <div class="game-prompt__message">
+            <p>???</p>
+          </div>
+          <div class="game-prompt__options">
+            <div class="game-prompt__option-one">
+              <img src="../assets/drink.png" />
+              <p id="drinkOne">drink option 1</p>
+            </div>
+            <div class="game-prompt__option-two">
+              <img src="../assets/drink.png" />
+              <p id="drinkTwo">drink option 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="console__right-buttons">
+        <img src="../assets/buttonsAB.svg" />
+      </div>
+    </main>
+    <script src="../scripts/battle.js"></script>
+    <iframe
+      class="selection-music"
+      allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/213214227&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+    ></iframe>
+    <div
+      style="
+        font-size: 10px;
+        color: #cccccc;
+        line-break: anywhere;
+        word-break: normal;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+          Garuda, Verdana, Tahoma, sans-serif;
+        font-weight: 100;
+      "
+    >
+      <a
+        href="https://soundcloud.com/glitchxcity"
+        title="GlitchxCity"
+        target="_blank"
+        style="color: #cccccc; text-decoration: none"
+        >GlitchxCity</a
+      >
+      ·
+      <a
+        href="https://soundcloud.com/glitchxcity/diamond-and-pearl-legendary-battle-remix"
+        title="Pokémon Diamond and Pearl- Legendary Battle Theme Remix"
+        target="_blank"
+        style="color: #cccccc; text-decoration: none"
+        >Pokémon Diamond and Pearl- Legendary Battle Theme Remix</a
+      >
+    </div>
+  </body>
+</html>

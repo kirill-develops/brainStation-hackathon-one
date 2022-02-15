@@ -1,0 +1,284 @@
+@use "./partials/mixins" as *;
+@use "./partials/keyframes" as *;
+
+body {
+  background: #f9c854;
+  margin: 0;
+  font-family: "Press Start 2P", Verdana, sans-serif;
+  line-height: 2rem;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.console {
+  background-image: url(../assets/gb1.svg);
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+  width: 90vw;
+  min-height: 90vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  &__screen {
+    position: relative;
+    width: 45vw;
+    height: 40vw;
+    display: flex;
+    flex-direction: column;
+  }
+  .game-over {
+    position: absolute;
+    border-radius: 0 0 15px 15px;
+    width: 100%;
+    height: 100%;
+    padding-right: 8px;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    &__message {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 30%;
+      margin: 0;
+      font-size: 3rem;
+      &--center {
+        text-align: center;
+      }
+    }
+    &__link {
+      color: red;
+      background-color: black;
+      letter-spacing: 0.15rem;
+      font-size: 1.5rem;
+      padding: 6px 18px;
+      border-width: 2px;
+      border: 5px solid rgb(115, 115, 115);
+      border-radius: 22px;
+      overflow: hidden;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      width: max-content;
+      text-decoration: none;
+      margin: 0 auto;
+      transition: 0.3s;
+      &:hover {
+        border-color: red;
+        cursor: pointer;
+        color: white;
+      }
+    }
+  }
+}
+
+.battle {
+  background-image: url(../assets/battle-background.png);
+  background-size: contain;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  overflow: hidden;
+  &__player {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &--two {
+      justify-items: flex-end;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+  }
+
+  &__stat {
+    width: 90%;
+    min-height: 25%;
+    background-color: lightgrey;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    z-index: 10;
+
+    &--left {
+      border-radius: 0 20px 20px 0;
+      margin-top: 15px;
+    }
+
+    &--right {
+      border-radius: 20px 0 0 20px;
+      margin-bottom: 15px;
+      align-items: flex-end;
+    }
+
+    p {
+      margin: 10px;
+    }
+  }
+
+  &__hp-wrapper {
+    width: 100%;
+    background-color: rgb(106, 106, 106);
+    border: 4px solid white;
+    border-radius: 7px;
+    box-sizing: border-box;
+  }
+
+  &__hp {
+    position: relative;
+    // border-radius: 7px;
+    width: 100%;
+    height: 15px;
+
+    background-color: green;
+    &--medium {
+      background-color: orange;
+    }
+
+    &--low {
+      background-color: red;
+    }
+  }
+
+  &__hit {
+    position: absolute;
+    bottom: 70%;
+    right: 30%;
+    max-width: 30%;
+  }
+
+  &__no-hit {
+    display: none;
+  }
+
+  &__cups {
+    display: flex;
+    margin-top: 15px;
+
+    img {
+      width: 20px;
+    }
+  }
+
+  &__sprite {
+    height: 80%;
+    animation: initalBobbing 2s infinite linear;
+    &--start-drinking {
+      animation: wiggleStart 3s infinite linear;
+    }
+    &--middle-drinking {
+      animation: wiggleMid 3s infinite linear;
+    }
+    &--late-drinking {
+      animation: wiggleLate 3s infinite linear;
+    }
+    &--passed-out {
+      animation: passedOut 1s linear forwards;
+    }
+  }
+}
+
+.game-prompt {
+  display: flex;
+  width: 100%;
+  height: 30%;
+  position: relative;
+
+  &__message {
+    background-color: lightgray;
+    border: 5px solid yellow;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 40%;
+    height: 95%;
+    margin: 5px;
+    padding: 0 10px;
+
+    &--player-two {
+      position: relative;
+      left: 60%;
+    }
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--player-two {
+      position: relative;
+      right: 41%;
+    }
+
+    img {
+      height: 60%;
+      margin-right: 10px;
+    }
+  }
+
+  &__option-one {
+    // background-color: blue;
+    background: rgb(37, 154, 145);
+    background: linear-gradient(
+      0deg,
+      rgba(37, 154, 145, 1) 0%,
+      rgba(9, 42, 121, 1) 61%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    border: 4px solid white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 45%;
+    margin: 5px;
+    padding: 0 15px;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+
+  &__option-two {
+    // background-color: blue;
+    background: rgb(223, 207, 207);
+    background: linear-gradient(
+      0deg,
+      rgba(223, 207, 207, 1) 0%,
+      rgba(238, 67, 67, 1) 34%,
+      rgba(230, 176, 242, 1) 100%
+    );
+    border: 4px solid white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 45%;
+    margin: 5px;
+    padding: 0 15px;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.selection-music {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  height: 2rem;
+  width: 2rem;
+  display: none;
+}

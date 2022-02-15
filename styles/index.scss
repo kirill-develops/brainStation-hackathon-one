@@ -1,0 +1,189 @@
+@font-face {
+    font-family: "Pretendo";
+    src: url(/assets/Pretendo.ttf);
+}
+@keyframes pulse {
+    0% {background-color: rgba(0,0,0,0.5);backdrop-filter: blur(4px);}
+    50% {background-color: rgba(0,0,0,0.8);backdrop-filter: blur(2px);}
+    100% {background-color: rgba(0,0,0,0.5);backdrop-filter: blur(4px);}
+}
+@keyframes shake { 
+    0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes pulse2 {
+    0% {filter: invert(1);}
+    50% {filter: invert(0);}
+    100% {filter: invert(1);}
+}
+body {
+    margin: 0;
+}
+.background {
+    background: rgb(83,64,160);
+    background: linear-gradient(0deg, rgba(83,64,160,1) 5%, rgba(77,27,126,1) 9%, rgba(54,37,122,1) 11%, rgba(68,25,121,1) 36%, rgba(130,47,132,1) 39%, rgba(74,35,122,1) 45%, rgba(75,39,127,1) 69%, rgba(83,64,160,1) 77%);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+}
+.player-selector {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+    &__top {
+        background-image: url(/assets/pokemon_bar.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        box-sizing: border-box;
+        width: 100%;
+        height: 50%;
+        max-height: 50%;
+        padding: 2.5%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__bottom {
+        box-sizing: border-box;
+        width: 90%;
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__versus {
+        max-width: 20%;
+        filter: invert(1);
+        transition: 0.5s;
+        animation: pulse2 9s ease-in 0s infinite normal forwards;
+
+    }
+}
+.player-one {
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 35vh;
+
+    &__sprite {
+        padding: 5px;
+        max-height: 280px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        // background-color: rgba(0,0,0,0.7);
+        // backdrop-filter: blur(8px);
+        animation: pulse 4s ease-in 0s infinite normal forwards;
+
+        &--flipped {
+            @extend .player-one__sprite;
+            transform: scaleX(-1)
+        }
+    }
+    &__input {
+        font-family: pretendo;
+        font-size: 1.2rem;
+        width: 20rem;
+        padding: 8px 12px;
+        border: 4px solid red;
+        border-radius: 24px;
+        text-align: center;
+        outline: none;
+        transition: 0.5s;
+
+        &:hover {
+            background-color: rgb(150,150,150);
+        }
+        &:focus {
+            background-color: rgb(225,225,225);
+        }
+        &::placeholder {
+            color: red;
+            text-align: center;
+        }
+    }
+    &__selections {
+        display: inline-flex;
+        // background-color: rgb(230,230,230);
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        min-width: 205px;
+        width: 100%;
+        max-width: 525px;
+        height: 205px;
+        padding: 1% 0.5%;
+        border: 4px solid rgb(230,230,230);
+        border-radius: 4px;
+        
+    }
+    &__option {
+        background-color: rgb(254, 199, 53);
+        border: 4px solid rgb(230,230,230);
+        // border-radius: 4px;
+        transition: 0.5s;
+        &--flipped {
+            @extend .player-one__option;
+            transform: scaleX(-1);
+        }
+        &--active {
+            @extend .player-one__option;
+            border: 4px solid red;
+        }
+        &:hover {
+            animation: shake 1s ease 0s infinite normal forwards;
+            background-color: rgb(224, 177, 48);
+        }
+    }
+}
+
+.button {
+    // height: 5vh;
+    font-family: pretendo;
+    color: red;
+    background-color: black;
+    letter-spacing: 0.15rem;
+    font-size: 1.5rem;
+    min-width: 9rem;
+    padding: 6px 18px;
+    border-width: 2px;
+    border: 5px solid rgb(195,195,195);
+    border-radius: 22px;
+    overflow: hidden;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+
+    &:hover {
+        color: rgb(205,205,205);
+            border-color: red;
+    }
+}
